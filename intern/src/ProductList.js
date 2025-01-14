@@ -1,6 +1,8 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
+
+// 샘플 물품
 const sampleProducts = [
   { id: 1, name: '셔츠', price: '25,000', image: 'https://sitem.ssgcdn.com/71/94/29/item/1000589299471_i1_1200.jpg' },
   { id: 2, name: '바지', price: '30,000', image: 'https://sitem.ssgcdn.com/54/11/98/item/1000620981154_i1_1200.jpg' },
@@ -21,6 +23,7 @@ const ProductList = () => {
   );
 };
 
+// 스타일 파트트
 const styles = {
   container: {
     padding: '16px',
