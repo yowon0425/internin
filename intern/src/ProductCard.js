@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ProductCard = ({ product }) => {
+  
   const [inCart, setInCart] = useState(false);
 
   // 상품 추가 기능
@@ -15,13 +16,6 @@ const ProductCard = ({ product }) => {
       <div style={styles.info}>
         <h3 style={styles.name}>{product.name}</h3>
         <p style={styles.price}>{product.price}원</p>
-        <button
-          onClick={handleAddToCart}
-          style={inCart ? styles.addedButton : styles.button}
-          disabled={inCart}
-        >
-          {inCart ? '장바구니에 담김' : '장바구니 담기'}
-        </button>
       </div>
     </div>
   );
@@ -50,24 +44,6 @@ const styles = {
   price: {
     fontSize: '14px',
     color: '#555',
-  },
-  button: {
-    marginTop: '8px',
-    padding: '8px 12px',
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-  addedButton: {
-    marginTop: '8px',
-    padding: '8px 12px',
-    backgroundColor: '#6c757d',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'not-allowed',
   },
 };
 
