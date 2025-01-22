@@ -1,8 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';  // React Router의 useNavigate 훅 사용
 import ProductCard from './ProductCard';
 
-
-// 샘플 물품
 const sampleProducts = [
   { id: 1, name: '셔츠', price: '25,000', image: 'https://sitem.ssgcdn.com/71/94/29/item/1000589299471_i1_1200.jpg' },
   { id: 2, name: '바지', price: '30,000', image: 'https://sitem.ssgcdn.com/54/11/98/item/1000620981154_i1_1200.jpg' },
@@ -11,6 +10,12 @@ const sampleProducts = [
 ];
 
 const ProductList = () => {
+  const navigate = useNavigate();  // useNavigate 훅을 사용하여 페이지 이동
+
+  const handleCardRegisterClick = () => {
+    navigate('/card-register');  // 카드 등록 페이지로 이동
+  };
+
   return (
     <div style={styles.container}>
       <h1 style={styles.header}>패션 쇼핑몰</h1>
@@ -19,17 +24,20 @@ const ProductList = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <button style={styles.button} onClick={handleCardRegisterClick}>
+        카드 등록하기
+      </button>
     </div>
   );
 };
 
-// 스타일 파트트
 const styles = {
   container: {
     padding: '16px',
     maxWidth: '768px',
     margin: '0 auto',
     fontFamily: 'Arial, sans-serif',
+    position: 'relative', // button 위치 조정을 위한 relative 설정
   },
   header: {
     textAlign: 'center',
@@ -40,6 +48,17 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '16px',
+  },
+  button: {
+    position: 'absolute', // absolute 위치 지정
+    top: '16px', // 상단 여백
+    right: '16px', // 우측 여백
+    padding: '10px 20px',
+    backgroundColor: '#007BFF',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
   },
 };
 
