@@ -1,6 +1,15 @@
 import React from 'react';
 
 const ProductCard = ({ product }) => {
+  
+  const [inCart, setInCart] = useState(false);
+
+  // 상품 추가 기능
+  const handleAddToCart = () => {
+    setInCart(true);
+    alert(`${product.name}이(가) 장바구니에 추가되었어요!`);
+  };
+
   return (
     <div style={styles.card}>
       <img src={product.image} alt={product.name} style={styles.image} />
